@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Administrare — La Nico la Obor</title>
+<meta name="theme-color" content="#344229" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><path d='M20 6 L20 34' stroke='%236b4423' stroke-width='1.6' stroke-linecap='round'/><ellipse cx='14' cy='14' rx='3.2' ry='5' fill='%23c79a3a' transform='rotate(-30 14 14)'/><ellipse cx='26' cy='14' rx='3.2' ry='5' fill='%23c79a3a' transform='rotate(30 26 14)'/><ellipse cx='13' cy='20' rx='3.2' ry='5' fill='%23c79a3a' transform='rotate(-30 13 20)'/><ellipse cx='27' cy='20' rx='3.2' ry='5' fill='%23c79a3a' transform='rotate(30 27 20)'/><ellipse cx='14' cy='26' rx='3.2' ry='5' fill='%23c79a3a' transform='rotate(-30 14 26)'/><ellipse cx='26' cy='26' rx='3.2' ry='5' fill='%23c79a3a' transform='rotate(30 26 26)'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a href="index.html" class="brand" aria-label="La Nico la Obor — acasă">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 6 L20 34" stroke="#6b4423" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="14" cy="14" rx="3.2" ry="5" fill="#c79a3a" transform="rotate(-30 14 14)"/>
+        <ellipse cx="26" cy="14" rx="3.2" ry="5" fill="#c79a3a" transform="rotate(30 26 14)"/>
+        <ellipse cx="13" cy="20" rx="3.2" ry="5" fill="#c79a3a" transform="rotate(-30 13 20)"/>
+        <ellipse cx="27" cy="20" rx="3.2" ry="5" fill="#c79a3a" transform="rotate(30 27 20)"/>
+        <ellipse cx="14" cy="26" rx="3.2" ry="5" fill="#c79a3a" transform="rotate(-30 14 26)"/>
+        <ellipse cx="26" cy="26" rx="3.2" ry="5" fill="#c79a3a" transform="rotate(30 26 26)"/>
+      </svg>
+      LA NICO LA OBOR · Administrare
+    </a>
+    <nav aria-label="Acțiuni administrative">
+      <ul>
+        <li><a href="index.html">← Înapoi la site</a></li>
+        <li><a href="#" id="logoutBtn" hidden>Deconectare</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="admin-shell">
+
+  <!-- ===== Login ===== -->
+  <section class="login-card" id="loginCard">
+    <h2>Autentificare</h2>
+    <p class="lede">
+      Conectați-vă cu un <strong>GitHub Personal Access Token</strong> care are acces de scriere pe
+      acest depozit. Tokenul rămâne doar în browserul dumneavoastră.
+    </p>
+
+    <form id="loginForm" novalidate>
+      <div class="form-row">
+        <label for="token">Token GitHub (PAT)</label>
+        <input type="password" id="token" name="token" required autocomplete="off"
+               placeholder="ghp_… sau github_pat_…" />
+      </div>
+      <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Conectare</button>
+      </div>
+      <div id="loginStatus" class="form-status" role="status"></div>
+    </form>
+
+    <div class="help">
+      <strong>Cum obțin un token?</strong><br>
+      1. Mergeți la <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener noreferrer">github.com/settings/tokens (fine-grained)</a><br>
+      2. Generați un token nou, alegeți doar acest depozit<br>
+      3. La permisiuni, dați <em>Read &amp; write</em> pentru <em>Contents</em><br>
+      4. Copiați tokenul și lipiți-l mai sus.<br><br>
+      <span class="muted">Pentru un token clasic (ghp_…) este nevoie de scope-ul <code>repo</code>.</span>
+    </div>
+  </section>
+
+  <!-- ===== Dashboard ===== -->
+  <section id="dashboard" hidden>
+    <div class="admin-header">
+      <h1>Panou administrare</h1>
+      <div class="admin-user">
+        Conectat ca <span class="who" id="whoami">…</span>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" role="tab" data-panel="reviewsPanel" aria-selected="true">Recenzii <span id="reviewsBadge" class="unsaved" hidden>nesalvat</span></button>
+      <button class="tab" role="tab" data-panel="galleryPanel" aria-selected="false">Galerie <span id="galleryBadge" class="unsaved" hidden>nesalvat</span></button>
+    </div>
+
+    <!-- ===== Reviews panel ===== -->
+    <div class="panel active" id="reviewsPanel" role="tabpanel">
+      <div class="add-section">
+        <h3>Adăugați o recenzie</h3>
+        <form id="addReviewForm" novalidate>
+          <div class="form-row">
+            <label for="ar-name">Nume client</label>
+            <input type="text" id="ar-name" name="name" maxlength="60" required />
+          </div>
+          <div class="form-row">
+            <label for="ar-rating">Notă</label>
+            <select id="ar-rating" name="rating" required>
+              <option value="">— alegeți —</option>
+              <option value="5">★★★★★ (5)</option>
+              <option value="4">★★★★ (4)</option>
+              <option value="3">★★★ (3)</option>
+              <option value="2">★★ (2)</option>
+              <option value="1">★ (1)</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="ar-comment">Comentariu</label>
+            <textarea id="ar-comment" name="comment" maxlength="600" required></textarea>
+          </div>
+          <div class="form-row">
+            <label for="ar-date">Data</label>
+            <input type="date" id="ar-date" name="date" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Adaugă recenzie</button>
+        </form>
+      </div>
+
+      <h3 style="margin: 24px 0 14px;">Recenzii existente</h3>
+      <div class="admin-list" id="reviewsAdminList">
+        <p class="muted">Se încarcă…</p>
+      </div>
+
+      <div class="commit-bar">
+        <span class="status" id="reviewsStatus">Toate modificările sunt salvate.</span>
+        <div class="actions">
+          <button type="button" class="btn btn-warm" id="reviewsSaveBtn" disabled>Salvează &amp; commit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Gallery panel ===== -->
+    <div class="panel" id="galleryPanel" role="tabpanel">
+      <div class="add-section">
+        <h3>Adăugați o fotografie</h3>
+        <p class="muted" style="margin-top: -6px;">
+          Imaginea va fi încărcată direct în depozit (folderul <code>images/</code>) imediat ce o alegeți.
+          Apoi modificați descrierea și apăsați <em>Salvează &amp; commit</em>.
+        </p>
+        <form id="addImageForm" novalidate>
+          <div class="form-row">
+            <label for="img-file">Fișier imagine</label>
+            <input type="file" id="img-file" name="file" accept="image/*" required />
+            <img id="imgPreview" class="image-preview" alt="" hidden />
+          </div>
+          <div class="form-row">
+            <label for="img-caption">Descriere (caption)</label>
+            <input type="text" id="img-caption" name="caption" maxlength="120"
+                   placeholder="Ex: Taraba noastră, dimineața" />
+          </div>
+          <div class="form-row">
+            <label for="img-alt">Text alternativ (alt)</label>
+            <input type="text" id="img-alt" name="alt" maxlength="120"
+                   placeholder="Pentru accesibilitate" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="uploadImageBtn">Încarcă imaginea</button>
+          <span class="muted" id="uploadStatus" style="margin-left: 12px;"></span>
+        </form>
+      </div>
+
+      <h3 style="margin: 24px 0 14px;">Fotografii existente</h3>
+      <div class="admin-list" id="galleryAdminList">
+        <p class="muted">Se încarcă…</p>
+      </div>
+
+      <div class="commit-bar">
+        <span class="status" id="galleryStatus">Toate modificările sunt salvate.</span>
+        <div class="actions">
+          <button type="button" class="btn btn-warm" id="gallerySaveBtn" disabled>Salvează &amp; commit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<footer class="site">
+  <div class="container">
+    <p>© <span id="year"></span> La Nico la Obor — panou administrare</p>
+  </div>
+</footer>
+
+<script src="assets/js/admin.js"></script>
+</body>
+</html>
