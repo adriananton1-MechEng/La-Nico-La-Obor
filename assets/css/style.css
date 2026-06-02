@@ -122,7 +122,8 @@ header.site {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  color: var(--paper);
+  color: var(--ink);
+  background: var(--cream);
   min-height: clamp(460px, 62vh, 720px);
   display: flex;
   align-items: center;
@@ -142,6 +143,8 @@ header.site {
   object-fit: cover;
   object-position: center;
   display: block;
+  opacity: 0.28;
+  filter: saturate(0.75) contrast(0.95);
 }
 .hero::before {
   content: "";
@@ -149,8 +152,8 @@ header.site {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(20, 14, 8, 0.55) 0%, rgba(20, 14, 8, 0.25) 38%, rgba(20, 14, 8, 0.7) 100%),
-    radial-gradient(ellipse at center, rgba(20, 14, 8, 0) 40%, rgba(20, 14, 8, 0.45) 100%);
+    radial-gradient(ellipse at center, rgba(246, 239, 221, 0) 35%, rgba(246, 239, 221, 0.65) 100%),
+    linear-gradient(180deg, rgba(246, 239, 221, 0.45) 0%, rgba(246, 239, 221, 0.15) 45%, rgba(246, 239, 221, 0.55) 100%);
   pointer-events: none;
 }
 
@@ -158,12 +161,11 @@ header.site {
   display: inline-block;
   font-family: 'Lora', serif;
   font-style: italic;
-  color: var(--gold-soft);
+  color: var(--terracotta);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.85rem;
   margin-bottom: 18px;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
 .section-eyebrow {
   display: block;
@@ -180,16 +182,13 @@ header.site {
 .hero h1 {
   font-size: clamp(2.4rem, 6vw, 4.2rem);
   margin-bottom: 18px;
-  color: var(--paper);
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+  color: var(--green-deep);
 }
 .hero .lede {
   max-width: 640px;
   margin: 0 auto 32px;
   font-size: 1.15rem;
-  color: var(--paper);
-  opacity: 0.95;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  color: var(--ink-soft);
 }
 .hero-cta {
   display: inline-flex;
@@ -198,14 +197,13 @@ header.site {
   justify-content: center;
 }
 .hero .btn-ghost {
-  border-color: var(--paper);
-  color: var(--paper);
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(2px);
+  border-color: var(--green-deep);
+  color: var(--green-deep);
+  background: transparent;
 }
 .hero .btn-ghost:hover {
-  background: var(--paper);
-  color: var(--green-deep);
+  background: var(--green-deep);
+  color: var(--paper);
 }
 .hero .divider { color: var(--gold-soft); }
 .hero .divider::before, .hero .divider::after { background: rgba(231, 207, 138, 0.5); }
@@ -438,8 +436,16 @@ section { padding: 72px 0; position: relative; }
 
 .google-reviews-widget {
   max-width: 960px;
-  margin: 0 auto 40px;
+  margin: 0 auto 24px;
   min-height: 200px;
+}
+.reviews-cta {
+  text-align: center;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 .google-reviews-widget .widget-placeholder {
   background: var(--paper);
