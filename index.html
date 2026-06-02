@@ -287,44 +287,66 @@
       <span class="section-eyebrow">Recenzii</span>
       <h2>Ce spun clienții noștri</h2>
       <div class="section-intro">
-        <p>Părerile dumneavoastră ne ajută să ne facem treaba mai bine. Lăsați o notă și un cuvânt, dacă ați cumpărat de la noi.</p>
+        <p>Recenziile vin direct de pe Google — păreri reale, lăsate de oameni care s-au oprit la tarabă.
+          Vă mulțumim pentru fiecare cuvânt.</p>
       </div>
 
-      <div class="reviews-list" id="reviewsList" aria-live="polite">
-        <div class="reviews-empty">Se încarcă recenziile…</div>
-      </div>
-
-      <form id="reviewForm" class="review-form" novalidate>
-        <h3>Lăsați o recenzie</h3>
-        <p class="form-intro">Recenziile sunt verificate înainte de publicare.</p>
-
-        <div class="form-row">
-          <label for="rev-name">Numele dumneavoastră</label>
-          <input type="text" id="rev-name" name="name" maxlength="60" required autocomplete="name" />
+      <!--
+        Widget recenzii Google — slot pentru cod de la Trustindex (sau alt furnizor).
+        Pași pentru activare:
+          1. Cont gratuit pe https://www.trustindex.io
+          2. Adăugați afacerea „La Nico la Obor" (URL Google Maps)
+          3. Alegeți un layout (recomandat: „Slider" sau „Grid", paletă caldă)
+          4. Copiați snippetul <script>…</script> din pasul „Embed"
+          5. Înlocuiți acest comentariu cu snippetul
+      -->
+      <div id="google-reviews-widget" class="google-reviews-widget" aria-label="Recenzii Google">
+        <div class="widget-placeholder">
+          <p>În curând: recenziile noastre de pe Google, actualizate automat.</p>
+          <p>
+            <a class="btn btn-warm btn-sm"
+               href="https://search.google.com/local/writereview?placeid=/g/11yrp_wdh5"
+               target="_blank" rel="noopener noreferrer">Lasă o recenzie pe Google ↗</a>
+            <a class="btn btn-ghost btn-sm"
+               href="https://www.google.com/maps?kgmid=/g/11yrp_wdh5"
+               target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">Vezi pe Google Maps ↗</a>
+          </p>
         </div>
+      </div>
 
-        <div class="form-row">
-          <label>Notă (1 = slabă, 5 = excelentă)</label>
-          <div class="rating-input" role="radiogroup" aria-label="Notă">
-            <input type="radio" id="r5" name="rating" value="5" /><label for="r5" title="5 stele">★</label>
-            <input type="radio" id="r4" name="rating" value="4" /><label for="r4" title="4 stele">★</label>
-            <input type="radio" id="r3" name="rating" value="3" /><label for="r3" title="3 stele">★</label>
-            <input type="radio" id="r2" name="rating" value="2" /><label for="r2" title="2 stele">★</label>
-            <input type="radio" id="r1" name="rating" value="1" /><label for="r1" title="1 stea">★</label>
+      <details class="review-form-toggle">
+        <summary>Sau scrieți-ne direct (publicăm după verificare)</summary>
+        <form id="reviewForm" class="review-form" novalidate>
+          <p class="form-intro">Pentru cei care nu folosesc Google — ne lăsați un cuvânt aici și îl publicăm noi.</p>
+
+          <div class="form-row">
+            <label for="rev-name">Numele dumneavoastră</label>
+            <input type="text" id="rev-name" name="name" maxlength="60" required autocomplete="name" />
           </div>
-        </div>
 
-        <div class="form-row">
-          <label for="rev-comment">Părerea dumneavoastră</label>
-          <textarea id="rev-comment" name="comment" maxlength="600" required placeholder="Ce v-a plăcut? Ce am putea face mai bine?"></textarea>
-        </div>
+          <div class="form-row">
+            <label>Notă (1 = slabă, 5 = excelentă)</label>
+            <div class="rating-input" role="radiogroup" aria-label="Notă">
+              <input type="radio" id="r5" name="rating" value="5" /><label for="r5" title="5 stele">★</label>
+              <input type="radio" id="r4" name="rating" value="4" /><label for="r4" title="4 stele">★</label>
+              <input type="radio" id="r3" name="rating" value="3" /><label for="r3" title="3 stele">★</label>
+              <input type="radio" id="r2" name="rating" value="2" /><label for="r2" title="2 stele">★</label>
+              <input type="radio" id="r1" name="rating" value="1" /><label for="r1" title="1 stea">★</label>
+            </div>
+          </div>
 
-        <div style="text-align: center;">
-          <button type="submit" class="btn btn-primary">Trimite recenzia</button>
-        </div>
+          <div class="form-row">
+            <label for="rev-comment">Părerea dumneavoastră</label>
+            <textarea id="rev-comment" name="comment" maxlength="600" required placeholder="Ce v-a plăcut? Ce am putea face mai bine?"></textarea>
+          </div>
 
-        <div id="reviewStatus" class="form-status" role="status"></div>
-      </form>
+          <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Trimite mesajul</button>
+          </div>
+
+          <div id="reviewStatus" class="form-status" role="status"></div>
+        </form>
+      </details>
     </div>
   </section>
 

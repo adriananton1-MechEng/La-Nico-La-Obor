@@ -7,7 +7,6 @@
   'use strict';
 
   const DATA = {
-    reviews: 'data/reviews.json',
     gallery: 'data/gallery.json',
   };
 
@@ -32,27 +31,6 @@
     return node;
   }
 
-  function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, (c) => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-    }[c]));
-  }
-
-  function formatDate(iso) {
-    if (!iso) return '';
-    try {
-      const d = new Date(iso);
-      return d.toLocaleDateString('ro-RO', { year: 'numeric', month: 'long', day: 'numeric' });
-    } catch (e) {
-      return iso;
-    }
-  }
-
-  function stars(n) {
-    const r = Math.max(0, Math.min(5, Math.round(Number(n) || 0)));
-    return '★'.repeat(r) + '☆'.repeat(5 - r);
-  }
-
   // ---------- year ----------
   function setYear() {
     const y = $('#year');
@@ -60,46 +38,9 @@
   }
 
   // ---------- reviews ----------
-  async function loadReviews() {
-    const list = $('#reviewsList');
-    if (!list) return;
-    try {
-      const res = await fetch(DATA.reviews, { cache: 'no-cache' });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const data = await res.json();
-      renderReviews(list, data.reviews || []);
-    } catch (e) {
-      list.innerHTML = '';
-      list.appendChild(el('div', { class: 'reviews-empty' },
-        'Recenziile nu pot fi încărcate momentan. Reîncărcați pagina sau reveniți mai târziu.'));
-    }
-  }
-
-  function renderReviews(list, reviews) {
-    list.innerHTML = '';
-    if (!reviews.length) {
-      list.appendChild(el('div', { class: 'reviews-empty' },
-        'Încă nu avem recenzii. Fiți primul care lasă o părere — vă mulțumim!'));
-      return;
-    }
-    // newest first
-    const sorted = [...reviews].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-    for (const r of sorted) {
-      list.appendChild(reviewCard(r));
-    }
-  }
-
-  function reviewCard(r) {
-    const card = el('article', { class: 'review-card' });
-    card.appendChild(el('div', { class: 'review-stars', 'aria-label': `${r.rating} din 5 stele` }, stars(r.rating)));
-    card.appendChild(el('p', { class: 'review-comment' }, r.comment || ''));
-    const meta = el('div', { class: 'review-meta' });
-    meta.appendChild(el('span', { class: 'name' }, r.name || 'Anonim'));
-    meta.appendChild(el('span', { class: 'date' }, formatDate(r.date)));
-    card.appendChild(meta);
-    return card;
-  }
-
+  // Public reviews now come from the Google widget embedded in #google-reviews-widget.
+  // The form below is a secondary path: submissions queue in localStorage and are
+  // published by the admin via the GitHub-backed admin panel.
   function handleReviewForm() {
     const form = $('#reviewForm');
     if (!form) return;
@@ -194,7 +135,6 @@
   // ---------- init ----------
   document.addEventListener('DOMContentLoaded', () => {
     setYear();
-    loadReviews();
     handleReviewForm();
     loadGallery();
   });
