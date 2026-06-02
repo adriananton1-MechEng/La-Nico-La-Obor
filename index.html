@@ -11,6 +11,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
+<link rel="preload" as="image" href="images/hero-covrigi-desktop-1440.webp"
+      imagesrcset="images/hero-covrigi-desktop-720.webp 720w, images/hero-covrigi-desktop-1080.webp 1080w, images/hero-covrigi-desktop-1440.webp 1440w, images/hero-covrigi-desktop-1920.webp 1920w"
+      imagesizes="100vw"
+      media="(min-width: 761px)" />
+<link rel="preload" as="image" href="images/hero-covrigi-mobile-720.webp"
+      imagesrcset="images/hero-covrigi-mobile-480.webp 480w, images/hero-covrigi-mobile-720.webp 720w, images/hero-covrigi-mobile-1080.webp 1080w"
+      imagesizes="100vw"
+      media="(max-width: 760px)" />
 </head>
 <body>
 
@@ -47,6 +55,40 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero" id="acasa">
+    <picture class="hero-media">
+      <source
+        media="(max-width: 760px)"
+        type="image/webp"
+        srcset="images/hero-covrigi-mobile-480.webp 480w,
+                images/hero-covrigi-mobile-720.webp 720w,
+                images/hero-covrigi-mobile-1080.webp 1080w"
+        sizes="100vw" />
+      <source
+        media="(max-width: 760px)"
+        type="image/jpeg"
+        srcset="images/hero-covrigi-mobile-480.jpg 480w,
+                images/hero-covrigi-mobile-720.jpg 720w,
+                images/hero-covrigi-mobile-1080.jpg 1080w"
+        sizes="100vw" />
+      <source
+        type="image/webp"
+        srcset="images/hero-covrigi-desktop-720.webp 720w,
+                images/hero-covrigi-desktop-1080.webp 1080w,
+                images/hero-covrigi-desktop-1440.webp 1440w,
+                images/hero-covrigi-desktop-1920.webp 1920w"
+        sizes="100vw" />
+      <img
+        src="images/hero-covrigi-desktop-1440.jpg"
+        srcset="images/hero-covrigi-desktop-720.jpg 720w,
+                images/hero-covrigi-desktop-1080.jpg 1080w,
+                images/hero-covrigi-desktop-1440.jpg 1440w,
+                images/hero-covrigi-desktop-1920.jpg 1920w"
+        sizes="100vw"
+        alt="Covrigi de Buzău, copți pe vatră, la taraba din Piața Obor"
+        fetchpriority="high"
+        decoding="async"
+        width="1915" height="821" />
+    </picture>
     <div class="container">
       <span class="kicker">— Afacere de familie —</span>
       <h1>Din grădină, direct în Piața Obor.</h1>

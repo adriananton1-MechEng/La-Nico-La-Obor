@@ -2,3 +2,6 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# Source/original assets — optimized exports live in images/
+picture/
