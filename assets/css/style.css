@@ -353,7 +353,7 @@ section { padding: 72px 0; position: relative; }
 /* ===== Contact ===== */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
   margin-top: 32px;
 }
