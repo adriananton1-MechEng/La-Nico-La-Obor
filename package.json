@@ -1,0 +1,9 @@
+{
+  "name": "la-nico-la-obor",
+  "private": true,
+  "type": "module",
+  "description": "Static site with no runtime dependencies. package.json exists only so Node treats the modules as ESM for the test suite.",
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\""
+  }
+}

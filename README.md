@@ -9,7 +9,9 @@ tradiționali de Buzău, din Piața Obor, București. Țarc 81.
 
 | Pagină | Conținut |
 |---|---|
-| `index.html` | Prima pagină — povestea, tabla cu prețurile zilei, produse, hartă, recenzii, contact |
+| `index.html` | Prima pagină — povestea, tabla cu prețurile zilei, hartă, recenzii, contact |
+| `produse.html` | Catalogul de produse, cu cantități și adăugare în coș |
+| `cos.html` | Coșul de cumpărături |
 | `retete.html` | Rețete de familie: salată de vinete, zacuscă |
 | `galerie.html` | Galerie foto |
 | `livrare.html` | Condiții de livrare și retur |
@@ -51,11 +53,29 @@ Galeria se editează în `data/gallery.json`:
 { "images": [ { "src": "images/nume.jpg", "alt": "...", "caption": "..." } ] }
 ```
 
+### Teste
+
+```bash
+npm test
+```
+
+Dacă modificați `supabase/migrations/0003_seed.sql` (produse sau prețuri),
+regenerați catalogul de previzualizare:
+
+```bash
+node scripts/gen-preview-catalogue.mjs
+```
+
 ## Stadiu
 
-Etapa 1 (redesign complet + eliminarea vechiului panou de administrare) este
-finalizată. Urmează magazinul online: conturi de client, coș, comandă cu plata
-prin card sau ramburs, și panou de administrare pentru comenzi.
+**Etapele 1–2 finalizate.** Redesign complet, vechiul panou de administrare
+eliminat, catalog și coș funcționale. Site-ul rulează momentan în
+**modul previzualizare**: produsele se încarcă din `data/products.json`, iar
+comanda online nu este activă — în locul ei apare un buton de telefon.
+
+Urmează: conturi de client, comandă cu plata prin card sau ramburs,
+și panou de administrare pentru comenzi. Acestea au nevoie de conturi
+Supabase, Stripe și Resend.
 
 > **Înainte de lansarea magazinului** trebuie completate datele firmei
 > (denumire, CUI, nr. Registrul Comerțului, sediu, e-mail) în paginile legale —

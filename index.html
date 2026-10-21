@@ -21,7 +21,7 @@
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.trustindex.io;
   font-src 'self' https://fonts.gstatic.com;
   script-src 'self' https://cdn.trustindex.io;
-  connect-src 'self' https://cdn.trustindex.io;
+  connect-src 'self' https://cdn.trustindex.io https://*.supabase.co;
   frame-src https://www.google.com https://cdn.trustindex.io;
 " />
 
@@ -73,16 +73,18 @@
 
     <nav aria-label="Navigare principală">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#despre">Despre noi</a></li>
-        <li><a href="#produse">Produse</a></li>
+        <li><a href="produse.html">Produse</a></li>
         <li><a href="retete.html">Rețete</a></li>
         <li><a href="galerie.html">Galerie</a></li>
-        <li><a href="#recenzii">Recenzii</a></li>
+        <li><a href="#unde">Unde ne găsiți</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="cos.html" class="cart-link" data-cart-link>Coș <span class="cart-count" data-cart-count hidden></span></a></li>
       </ul>
     </nav>
   </div>
 </header>
+
+<p class="visually-hidden" id="shopLive" role="status" aria-live="polite"></p>
 
 <main id="main">
 
@@ -119,7 +121,7 @@
         aduse la tarabă de aceeași familie, de trei generații.
       </p>
       <div class="hero-cta">
-        <a href="#produse" class="btn btn-lg">Vezi produsele</a>
+        <a href="produse.html" class="btn btn-lg">Vezi produsele</a>
         <a href="#unde" class="btn btn-ghost btn-lg">Unde ne găsiți</a>
       </div>
     </div>
@@ -133,19 +135,14 @@
         <h2>Ce avem proaspăt</h2>
         <p>Scriem pe tablă dimineața, după ce descărcăm marfa. Prețurile se schimbă cu sezonul.</p>
 
-        <ul class="board-list">
-          <li><span class="name">Vinete</span><span class="leader"></span><span class="val">12 lei / kg</span></li>
-          <li><span class="name">Roșii de grădină</span><span class="leader"></span><span class="val">9 lei / kg</span></li>
-          <li><span class="name">Ardei kapia</span><span class="leader"></span><span class="val">14 lei / kg</span></li>
-          <li><span class="name">Ardei bianca</span><span class="leader"></span><span class="val">11 lei / kg</span></li>
-          <li><span class="name">Conopidă</span><span class="leader"></span><span class="val">8 lei / buc</span></li>
-          <li><span class="name">Usturoi</span><span class="leader"></span><span class="val">6 lei / legătură</span></li>
-          <li data-out="true"><span class="name">Covrigi de Buzău (șir de 50)</span><span class="leader"></span><span class="val">din noiembrie</span></li>
+        <ul class="board-list" id="boardRoot">
+          <li><span class="name">Se încarcă…</span></li>
         </ul>
 
         <p class="mt-6" style="font-size: .84rem;">
           <strong style="color: var(--gold);">Prețuri orientative.</strong>
           Sunați-ne pentru prețul zilei și pentru comenzi mai mari.
+          <a href="produse.html" style="color: var(--chalk);">Vezi toate produsele →</a>
         </p>
       </div>
     </div>
@@ -413,7 +410,7 @@
       <div>
         <h3>Taraba</h3>
         <ul>
-          <li><a href="index.html#produse">Produse</a></li>
+          <li><a href="produse.html">Produse</a></li>
           <li><a href="retete.html">Rețete</a></li>
           <li><a href="galerie.html">Galerie</a></li>
           <li><a href="index.html#unde">Unde ne găsiți</a></li>
@@ -460,5 +457,6 @@
 </div>
 
 <script src="assets/js/site.js"></script>
+<script type="module" src="assets/js/shop.js"></script>
 </body>
 </html>

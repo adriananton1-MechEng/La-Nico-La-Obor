@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Produse — legume de sezon și covrigi de Buzău | La Nico la Obor</title>
+<meta name="description" content="Legumele și covrigii de la taraba noastră din Piața Obor, cu prețurile zilei. Livrare în București." />
+<link rel="canonical" href="https://adriananton1-mecheng.github.io/La-Nico-La-Obor/produse.html" />
+<meta name="theme-color" content="#f4ede0" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#191613" media="(prefers-color-scheme: dark)" />
+
+<!-- connect-src allows the Supabase REST endpoint once config.js is filled in.
+     Replace YOUR-PROJECT with the real project ref at the same time. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  base-uri 'self';
+  form-action 'self';
+  object-src 'none';
+  img-src 'self' data: https:;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  script-src 'self';
+  connect-src 'self' https://*.supabase.co;
+  frame-src 'none';
+" />
+
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' fill='%23262e24'/><path d='M20 8 L20 32' stroke='%23b8862f' stroke-width='1.6' stroke-linecap='round'/><ellipse cx='14' cy='15' rx='3' ry='4.6' fill='%23f3f1e7' transform='rotate(-30 14 15)'/><ellipse cx='26' cy='15' rx='3' ry='4.6' fill='%23f3f1e7' transform='rotate(30 26 15)'/><ellipse cx='13.5' cy='21' rx='3' ry='4.6' fill='%23c4452a' transform='rotate(-30 13.5 21)'/><ellipse cx='26.5' cy='21' rx='3' ry='4.6' fill='%23c4452a' transform='rotate(30 26.5 21)'/><ellipse cx='14' cy='27' rx='3' ry='4.6' fill='%23f3f1e7' transform='rotate(-30 14 27)'/><ellipse cx='26' cy='27' rx='3' ry='4.6' fill='%23f3f1e7' transform='rotate(30 26 27)'/></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Sari la conținut</a>
+
+<header class="site">
+  <div class="container nav">
+    <a href="index.html" class="brand" aria-label="La Nico la Obor — acasă">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" rx="3" fill="#262e24"/>
+        <path d="M20 8 L20 32" stroke="#b8862f" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="14" cy="15" rx="3" ry="4.6" fill="#f3f1e7" transform="rotate(-30 14 15)"/>
+        <ellipse cx="26" cy="15" rx="3" ry="4.6" fill="#f3f1e7" transform="rotate(30 26 15)"/>
+        <ellipse cx="13.5" cy="21" rx="3" ry="4.6" fill="#c4452a" transform="rotate(-30 13.5 21)"/>
+        <ellipse cx="26.5" cy="21" rx="3" ry="4.6" fill="#c4452a" transform="rotate(30 26.5 21)"/>
+        <ellipse cx="14" cy="27" rx="3" ry="4.6" fill="#f3f1e7" transform="rotate(-30 14 27)"/>
+        <ellipse cx="26" cy="27" rx="3" ry="4.6" fill="#f3f1e7" transform="rotate(30 26 27)"/>
+      </svg>
+      <span>La Nico la Obor<small>Piața Obor · Țarc 81</small></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Deschide meniul">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <nav aria-label="Navigare principală">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="produse.html">Produse</a></li>
+        <li><a href="retete.html">Rețete</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="index.html#unde">Unde ne găsiți</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="cos.html" class="cart-link" data-cart-link>Coș <span class="cart-count" data-cart-count hidden></span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<p class="visually-hidden" id="shopLive" role="status" aria-live="polite"></p>
+
+<main id="main">
+  <section class="page-head">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Produse</span>
+        <h1>Ce avem la tarabă</h1>
+        <p class="lede">
+          Legume culese în zori și covrigi de Buzău copți pe vatră. Alegeți cantitatea,
+          puneți în coș, iar noi aducem marfa în București.
+        </p>
+      </div>
+      <div id="previewSlot"></div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="visually-hidden">Catalog de produse</h2>
+      <div id="catalogueRoot"></div>
+
+      <div class="note mt-7">
+        <strong>Cum cântărim:</strong> legumele se cântăresc la pregătirea comenzii.
+        Pentru produse naturale acceptăm o toleranță de ±10% față de cantitatea
+        comandată — detalii în <a href="livrare.html">Livrare și retur</a>.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">La Nico la Obor</div>
+        <p>
+          Afacere de familie în Piața Obor, București. Legume de sezon
+          și covrigi tradiționali de Buzău.
+        </p>
+        <p class="mt-6"><a href="tel:+40727774567">0727 774 567</a></p>
+      </div>
+      <div>
+        <h3>Taraba</h3>
+        <ul>
+          <li><a href="produse.html">Produse</a></li>
+          <li><a href="retete.html">Rețete</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="index.html#unde">Unde ne găsiți</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Informații</h3>
+        <ul>
+          <li><a href="livrare.html">Livrare și retur</a></li>
+          <li><a href="termeni.html">Termeni și condiții</a></li>
+          <li><a href="confidentialitate.html">Confidențialitate</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Protecția consumatorului</h3>
+        <ul>
+          <li><a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">ANPC ↗</a></li>
+          <li><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">SOL / ODR ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> La Nico la Obor — Piața Obor, București</span>
+      <span class="script">Din grădină, în plasa dumneavoastră.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script type="module" src="assets/js/shop.js"></script>
+</body>
+</html>
