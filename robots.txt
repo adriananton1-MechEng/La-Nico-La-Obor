@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://adriananton1-mecheng.github.io/La-Nico-La-Obor/sitemap.xml

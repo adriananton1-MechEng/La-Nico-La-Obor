@@ -5,3 +5,12 @@ Thumbs.db
 
 # Source/original assets — optimized exports live in images/
 picture/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
